@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリエイティブ制作LP | 吉原 千晶</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+.lp-container {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #4a413d;
+    background-color: #F8F4F0;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.lp-container *, .lp-container *::before, .lp-container *::after {
+    box-sizing: inherit;
+}
+
+.lp-container img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* 共通タイトル */
+.lp-section-title {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    font-size: 28px;
+    text-align: center;
+    color: #3b322d;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.lp-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: #C87A3B;
+}
+
+/* ヒーローセクション */
+.lp-hero {
+    background: linear-gradient(rgba(248, 244, 240, 0.9), rgba(248, 244, 240, 0.7)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    padding: 100px 20px 80px;
+    text-align: center;
+}
+.lp-hero h1 {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    font-size: 36px;
+    color: #3b322d;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+.lp-hero p {
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+.lp-hero .highlight {
+    color: #C87A3B;
+    font-weight: bold;
+}
+
+/* 悩みセクション */
+.lp-problem {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+.lp-problem-list {
+    max-width: 600px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+.lp-problem-list li {
+    background-color: #fdfaf7;
+    border-radius: 8px;
+    padding: 20px 20px 20px 50px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    font-weight: 500;
+}
+.lp-problem-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C87A3B;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 解決策セクション */
+.lp-solution {
+    padding: 80px 20px;
+    text-align: center;
+}
+.lp-solution-box {
+    background-color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(110,80,60,0.08);
+}
+.lp-solution-box h2 {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    font-size: 24px;
+    color: #C87A3B;
+    margin-bottom: 25px;
+}
+.lp-solution-box p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+/* サービス内容 */
+.lp-services {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+.lp-services-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+.lp-service-card {
+    background: #fdfaf7;
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    border-radius: 10px;
+    padding: 40px 30px;
+    text-align: center;
+    border-top: 5px solid #C87A3B;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.lp-service-card:hover {
+    transform: translateY(-5px);
+}
+.lp-service-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #3b322d;
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+}
+.lp-service-card p {
+    font-size: 14px;
+    text-align: left;
+    color: #665b55;
+}
+
+/* プロフィール */
+.lp-profile {
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.lp-profile-img {
+    flex: 0 0 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.lp-profile-text h3 {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.lp-profile-text .role {
+    color: #C87A3B;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* CTAセクション */
+.lp-cta {
+    background-color: #3b322d;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+.lp-cta h2 {
+    font-family: 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #F8F4F0;
+}
+.lp-cta .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e5a470;
+    margin-bottom: 40px;
+}
+.lp-btn {
+    display: inline-block;
+    background-color: #C87A3B;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(200, 122, 59, 0.4);
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+.lp-btn:hover {
+    background-color: #b56c32;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(200, 122, 59, 0.6);
+}
+.lp-btn-line {
+    background-color: #06c755;
+    box-shadow: 0 5px 15px rgba(6, 199, 85, 0.4);
+}
+.lp-btn-line:hover {
+    background-color: #05b34c;
+    box-shadow: 0 8px 20px rgba(6, 199, 85, 0.6);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .lp-hero h1 { font-size: 28px; }
+    .lp-profile { flex-direction: column; text-align: center; }
+    .lp-service-card { width: 100%; }
+    .lp-btn { display: block; width: 100%; margin: 10px 0; }
+}
+</style>
+</head>
+<body>
+<div class="lp-container">
+
+    <!-- 1. ヒーローセクション -->
+    <section class="lp-hero">
+        <h1>あなたの"想い"を形にする、<br>一番身近な制作パートナー</h1>
+        <p>
+            「LPを作りたいけど、何から始めればいい？」<br>
+            「デザインが苦手で手が止まってしまう...」
+        </p>
+        <p>
+            25年の実務経験で培った<span class="highlight">「的確なサポート力」</span>と、<br>
+            カウンセラーとしての<span class="highlight">「聴く力」</span>で、<br>
+            あなたのビジネスを支えるクリエイティブをお届けします。
+        </p>
+        <a href="#services" class="lp-btn">サービス内容を見る</a>
+    </section>
+
+    <!-- 2. 悩みセクション -->
+    <section class="lp-problem">
+        <h2 class="lp-section-title">こんなお悩み、ありませんか？</h2>
+        <ul class="lp-problem-list">
+            <li>LPを作りたいけど、構成を考える時間がない</li>
+            <li>SNS画像やチラシ、デザインがいつも自己流で自信がない</li>
+            <li>IT設定やツール操作が苦手で、本業になかなか集中できない</li>
+            <li>相談したいけど、誰に頼めばいいか分からない</li>
+        </ul>
+    </section>
+
+    <!-- 3. 解決策セクション -->
+    <section class="lp-solution">
+        <div class="lp-solution-box">
+            <h2>伴走型クリエイティブ制作が解決します</h2>
+            <p>
+                単に「作る」だけではなく、あなたのビジネスに寄り添い、一緒に「形」にしていきます。<br><br>
+                長年の実務経験があるからこそ、スケジュール管理や細かな確認も安心してお任せいただけます。カウンセラーとしての「聴く力」であなたの頭の中を丁寧に整理し、伝えたい想いがまっすぐ届くクリエイティブを一緒に作っていきます。
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. サービス内容セクション -->
+    <section class="lp-services" id="services">
+        <h2 class="lp-section-title">サービス内容</h2>
+        <div class="lp-services-wrap">
+            <div class="lp-service-card">
+                <h3>01. SNS画像制作</h3>
+                <p>インスタグラムの投稿画像やバナーなど、あなたのサービスや想いに合った、親しみやすく整った画像を作成します。</p>
+            </div>
+            <div class="lp-service-card">
+                <h3>02. チラシ・販促物制作</h3>
+                <p>イベントチラシや名刺など、オフラインでの集客を支えるツールを制作。手元に残る温かみを大切にします。</p>
+            </div>
+            <div class="lp-service-card">
+                <h3>03. LP制作</h3>
+                <p>あなた専用の「Web上の名刺」となるシンプルなLPを作成します。専門用語を使わず、一緒に考えながら丁寧に形にしていきます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. プロフィールセクション -->
+    <section class="lp-profile">
+        <div class="lp-profile-img">
+            <img src="./profile.png" alt="プロフィール写真">
+        </div>
+        <div class="lp-profile-text">
+            <h3>吉原 千晶</h3>
+            <span class="role">思考整理＆事務伴走パートナー</span>
+            <p>
+                「一人で悩む起業家を減らしたい」という想いから、デザイン知識と事務スキルを掛け合わせたサポートを提供しています。<br>
+                誰よりもあなたの「一番身近な理解者」として、ビジネスを一歩前へ進めるお手伝いをいたします。
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. CTAセクション -->
+    <section class="lp-cta" id="cta">
+        <h2>まずは「ちょっと相談」してみませんか？</h2>
+        <p>現在の状況やご希望をゆっくりお伺いします。</p>
+        <div class="price">
+            脳内整理＆クリエイティブ制作相談（30分）<br>
+            特別価格 2,000円
+        </div>
+        <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="lp-btn">無料相談に申し込む</a>
+        <a href="https://lin.ee/O3WdomY" target="_blank" class="lp-btn lp-btn-line">公式LINEで相談する</a>
+    </section>
+
+</div>
+</body>
+</html>

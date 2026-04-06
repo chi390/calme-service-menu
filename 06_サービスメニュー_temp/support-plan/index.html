@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calmeサポートプラン | 吉原 千晶 - あなたの「やりたい」を形にする</title>
+    <meta name="description" content="起業初心者さんのための伴走型サポート。パソコンやSNSが苦手な方も安心。思考整理・事務代行・LP制作まで、一人で頑張るあなたのビジネスをまるごと支えます。">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Warm Neutral Palette */
+            --main-color: #d16210; /* Terracotta Orange */
+            --text-dark: #422815;  /* Deep Brown */
+            --bg-light: #fff4eb;  /* Light Cream */
+            --accent-soft: #f8cbab; /* Peach Beige */
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .u-text-center { text-align: center; }
+        .u-mb-md { margin-bottom: 30px; }
+        .u-mb-lg { margin-bottom: 60px; }
+        .u-highlight { color: var(--main-color); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255,244,235,0.7), rgba(255,244,235,0.9)), url('./hero.png') center/cover no-repeat;
+            padding: 120px 0 100px;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--main-color);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--main-color);
+            margin: 20px auto 0;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        .problem-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        .problem-item {
+            padding: 15px 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .problem-item::before {
+            content: '✓';
+            color: var(--main-color);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Plans Section (The Core) */
+        .plans {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+        
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--accent-soft);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .plan-card.recommended {
+            border-color: var(--main-color);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(209, 98, 16, 0.15);
+        }
+        
+        .recommend-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--main-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .plan-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .plan-price {
+            font-size: 2rem;
+            color: var(--main-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .plan-price span { font-size: 1rem; color: #666; font-weight: normal; }
+
+        .plan-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 30px;
+            height: 60px;
+        }
+
+        .plan-features {
+            text-align: left;
+            list-style: none;
+        }
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        .plan-features li::before {
+            content: '・';
+            position: absolute;
+            left: 0;
+            color: var(--main-color);
+        }
+        .plan-features .new-feature {
+            color: var(--main-color);
+            font-weight: bold;
+        }
+
+        /* Feature Details */
+        .feature-highlight {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .feature-box {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--main-color);
+        }
+        .feature-box h3 { color: var(--main-color); margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* Profile */
+        .profile {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        .profile-flex {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .profile-img img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-soft);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--main-color);
+            color: var(--white);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--main-color);
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 10px;
+            transition: var(--transition);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-line { background-color: #06c755; color: white; }
+        .btn-line:hover { background-color: #05b34c; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .profile-flex { flex-direction: column; text-align: center; }
+            .btn { display: block; width: 100%; margin: 15px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="serif">一人で頑張る起業家さんへ。<br>あなたの「やりたい」を、<br>まるごと支えます。</h1>
+            <p>
+                パソコンやSNSが苦手でも大丈夫。<br>
+                事務歴25年×カウンセラーの千晶が、<br>
+                思考整理からIT設定、デザイン制作まで<br>
+                あなたの右腕として伴走します。
+            </p>
+            <a href="#plans" class="btn" style="background: var(--main-color); color: white;">プランを見る</a>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title serif">こんなお悩みありませんか？</h2>
+            <ul class="problem-list">
+                <li class="problem-item">SNSの発信や公式LINEの設定など、IT作業が手につかない</li>
+                <li class="problem-item">「やりたいこと」はあるのに、何から始めればいいか分からない</li>
+                <li class="problem-item">日々の事務作業に追われて、本来の仕事に集中できない</li>
+                <li class="problem-item">AIツール（ChatGPTやCanva）を使ってみたいけど一人では無理</li>
+                <li class="problem-item">一人で全部抱え込んでしまい、孤独を感じる</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="plans" class="plans">
+        <div class="container">
+            <h2 class="section-title serif">あなたのペースで選べる<br>3つの伴走サポートプラン</h2>
+            <p class="u-text-center">今のあなたの状況に合わせて、最適なサポートをお選びいただけます。</p>
+            
+            <div class="plan-grid">
+                <!-- プラン1: 梅 -->
+                <div class="plan-card">
+                    <div class="plan-icon">🌱</div>
+                    <h3 class="plan-name serif">はじめの一歩プラン</h3>
+                    <div class="plan-price">9,800円<span>/月</span></div>
+                    <p class="plan-desc">まずは頭の中を整理して、少しだけ手伝ってほしい方向けのライトプラン。</p>
+                    <ul class="plan-features">
+                        <li>月1回 Zoom作戦会議（30分）</li>
+                        <li>タスク・優先順位の整理（TODO作成）</li>
+                        <li>SNS画像作成（Canvaで月1〜2枚）</li>
+                        <li>選べる事務代行（月1回：メール作成/データ入力/Zoom設定）</li>
+                        <li class="new-feature">チャット相談（月3回まで）</li>
+                    </ul>
+                </div>
+
+                <!-- プラン2: 竹 -->
+                <div class="plan-card recommended">
+                    <div class="recommend-badge">一番人気</div>
+                    <div class="plan-icon">🌿</div>
+                    <h3 class="plan-name serif">しっかり整うプラン</h3>
+                    <div class="plan-price">19,800円<span>/月</span></div>
+                    <p class="plan-desc">サービス構築からSNS運用まで、土台をしっかり固めたい方のスタンダードプラン。</p>
+                    <ul class="plan-features">
+                        <li>月2回 Zoomコンサル（各45分）</li>
+                        <li>サービスメニューの内容・価格の整理</li>
+                        <li>SNS投稿カレンダーの作成</li>
+                        <li>Canvaデザイン制作（月2点）</li>
+                        <li class="new-feature">LP（ランディングページ）構成アドバイス</li>
+                        <li class="new-feature">AIツール活用サポート（Canva/ChatGPT等）</li>
+                        <li class="new-feature">公式LINE 基本設定＋ステップ配信シナリオ相談</li>
+                        <li>チャット相談（月10回まで）</li>
+                    </ul>
+                </div>
+
+                <!-- プラン3: 松 -->
+                <div class="plan-card">
+                    <div class="plan-icon">🌸</div>
+                    <h3 class="plan-name serif">まるっとおまかせプラン</h3>
+                    <div class="plan-price">39,800円<span>/月</span></div>
+                    <p class="plan-desc">面倒な作業を手放して、本業とお客様に向き合う時間を最大化するフルサポート。</p>
+                    <ul class="plan-features">
+                        <li>月3回 Zoomコンサル（各60分）</li>
+                        <li>Canva資料・投稿画像の制作（複数点）</li>
+                        <li>Zoom練習相手 & セッションのフィードバック</li>
+                        <li>インテーク面接フォーム設計＆定型文整理</li>
+                        <li class="new-feature">LP制作サポート（簡易版の作成）</li>
+                        <li class="new-feature">公式LINE構築＋ステップ配信設定代行</li>
+                        <li class="new-feature">不安やブロックの整理（カウンセリング要素）</li>
+                        <li>チャット相談（無制限）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="feature-highlight">
+        <div class="container">
+            <h2 class="section-title serif">Calmeのサポートの強み</h2>
+            
+            <div class="feature-box">
+                <h3>💻 AIを活用した「自分でできる」サポート</h3>
+                <p>ChatGPTでの文章作成や、Canvaを使った画像作成など、AIツールを活用した効率的な発信方法をお伝えします。「パソコンが苦手」な起業初心者の方でも、無理なく一人で綺麗な発信ができるようサポートします。</p>
+            </div>
+            
+            <div class="feature-box">
+                <h3>📱 公式LINEの「ステップ配信」までカバー</h3>
+                <p>初心者の方が一番つまずきやすい公式LINE。アカウントの開設やリッチメニューの作成だけでなく、お客様との信頼関係を築く「ステップ配信（自動配信）」のシナリオ作りから設定まで伴走します。</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🧠 「事務歴25年」×「カウンセラー」の寄り添い力</h3>
+                <p>ただの作業代行ではありません。あなたが行動できない理由（心のブロックや不安）を丁寧に解きほぐし、スケジュールやタスクに落とし込むところまで一緒に伴走する「一番身近な理解者」です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile -->
+    <section class="profile">
+        <div class="container">
+            <div class="profile-flex">
+                <div class="profile-img">
+                    <img src="./profile.png" alt="吉原千晶">
+                </div>
+                <div>
+                    <h2 class="serif">吉原 千晶</h2>
+                    <p style="color: var(--main-color); margin-bottom: 20px;">思考整理＆事務伴走パートナー</p>
+                    <p>
+                        保険業界を中心に事務職歴25年。正確さとスピードが求められる環境で、誰かの仕事を支えることに誇りを持ってきました。<br><br>
+                        「やりたい気持ちはあるのに、IT設定や事務作業につまずいて進めない…」そんな起業家さんの力になりたいと思い、事務サポートの世界へ。<br><br>
+                        カウンセラーとしての「聴く力」であなたの頭の中を整理し、最新のAIツールも活用しながら、無理のないペースでビジネスを形にするお手伝いをいたします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="serif u-mb-md" style="color: white;">まずは「無料相談」で<br>お気軽にお話ししませんか？</h2>
+            <p class="u-mb-lg">
+                「今の私に必要なプランはどれ？」「こんなことでもお願いできる？」<br>
+                まとまっていなくても大丈夫です。まずはお悩みをお聞かせください。
+            </p>
+            <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="btn">30分 無料相談に申し込む</a>
+            <a href="https://lin.ee/O3WdomY" target="_blank" class="btn btn-line">公式LINEから相談する</a>
+        </div>
+    </section>
+
+</body>
+</html>

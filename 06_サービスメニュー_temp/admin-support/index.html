@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事務サポートパートナー | 吉原 千晶 - 「本来の仕事」に没頭できる時間を</title>
+    <meta name="description" content="事務職歴25年の経験と正確な実務、そして伴走の心で、あなたのバックオフィスを支えます。事務代行から仕組み作りまで。もう、ひとりで抱え込まなくて大丈夫です。">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Warm Neutral Palette - Matching reference site */
+            --main-color: #d16210; /* Terracotta Orange */
+            --text-dark: #422815;  /* Deep Brown */
+            --bg-light: #fff4eb;  /* Light Cream */
+            --accent-soft: #f8cbab; /* Peach Beige */
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Utility Classes */
+        .u-text-center { text-align: center; }
+        .u-mt-lg { margin-top: 60px; }
+        .u-mb-lg { margin-bottom: 60px; }
+        .u-highlight { color: var(--main-color); }
+        
+        /* Fade-in Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--accent-soft);
+            padding: 100px 0 150px;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,192L80,208C160,224,320,256,480,240C640,224,800,160,960,154.7C1120,149,1280,203,1360,229.3L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-pre {
+            font-size: 1.1rem;
+            color: var(--main-color);
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            word-break: keep-all;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .hero-img {
+            max-width: 800px;
+            width: 90%;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(66, 40, 21, 0.15);
+            margin-top: -30px;
+            border: 8px solid var(--white);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .problem-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--main-color);
+        }
+
+        .problem-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            padding: 25px 0;
+            border-bottom: 1px dashed var(--accent-soft);
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .problem-item::before {
+            content: '×';
+            margin-right: 20px;
+            font-weight: 700;
+            color: var(--main-color);
+            font-size: 1.5rem;
+        }
+
+        /* Message / Affinity */
+        .message {
+            background-color: var(--bg-light);
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .message-box {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .message h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Solution Pillars */
+        .service {
+            padding: 120px 0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background-color: var(--bg-light);
+            padding: 50px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background-color: var(--accent-soft);
+        }
+
+        .service-num {
+            font-size: 1.5rem;
+            color: var(--main-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Benefits */
+        .benefit {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 100px 0;
+        }
+
+        .benefit h2 { text-align: center; margin-bottom: 60px; color: var(--accent-soft); font-size: 2rem; }
+
+        .benefit-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .benefit-item {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .benefit-item h3 { color: var(--accent-soft); margin-bottom: 15px; }
+
+        /* FAQ Section */
+        .faq { padding: 100px 0; }
+        .faq-item { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-q { font-weight: 700; color: var(--main-color); font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        .faq-a { padding-left: 20px; position: relative; }
+        .faq-a::before { content: 'A.'; position: absolute; left: 0; font-weight: bold; }
+
+        /* Profile Section */
+        .profile {
+            padding: 120px 0;
+            background-color: var(--bg-light);
+        }
+
+        .profile-flex {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid var(--white);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .profile-content {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .profile-name { font-size: 2rem; margin-bottom: 5px; }
+        .profile-ruby { font-size: 1rem; color: var(--main-color); margin-bottom: 20px; }
+
+        /* CTA Section */
+        .cta {
+            padding: 150px 0;
+            text-align: center;
+            background: linear-gradient(var(--white), var(--accent-soft));
+        }
+
+        .cta h2 { font-size: 2.5rem; margin-bottom: 40px; }
+
+        .cta-price-box {
+            background: var(--white);
+            display: inline-block;
+            padding: 40px 60px;
+            border-radius: 20px;
+            border: 2px solid var(--main-color);
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--main-color);
+            color: var(--white);
+            padding: 22px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.4rem;
+            box-shadow: 0 10px 20px rgba(209, 98, 16, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--text-dark);
+            transform: scale(1.05);
+        }
+
+        .btn-line {
+            background-color: #06c755;
+            box-shadow: 0 10px 20px rgba(6, 199, 85, 0.3);
+            margin-left: 10px;
+        }
+
+        .btn-line:hover {
+            background-color: #05b34c;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            background: var(--text-dark);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-sub { font-size: 1rem; }
+            .problem-title { font-size: 1.6rem; }
+            .problem-item { font-size: 1rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 1.8rem; }
+            .cta-price-box { padding: 30px 20px; }
+            .btn { width: 100%; margin: 10px 0; }
+            .btn-line { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <span class="hero-pre reveal">Your Administrative Partner</span>
+            <h1 class="reveal">「本来の仕事」に没頭できる、<br>心と時間のゆとりを。</h1>
+            <p class="hero-sub reveal">
+                バックオフィスを整え、煩雑な実務を代行。<br>
+                ひとりで抱え込むステージを卒業し、私と一緒に「続く仕組み」を作りませんか？
+            </p>
+            <a href="#service" class="btn reveal">サービス内容を見る</a>
+            <div class="u-mt-lg reveal">
+                <img src="./hero.png" alt="事務サポート・吉原千晶" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem u-text-center reveal">
+        <div class="container">
+            <p class="u-highlight serif" style="font-size: 1.5rem; margin-bottom: 10px;">ひとりで頑張るあなたへ。</p>
+            <h2 class="problem-title">こんな「実務の壁」にぶつかっていませんか？</h2>
+            <ul class="problem-list u-text-center">
+                <li class="problem-item">日々のメール対応や問い合わせ対応だけで、午前中が終わってしまう</li>
+                <li class="problem-item">事務作業やIT設定に時間がかかり、本業の準備がいつも後回しになっている</li>
+                <li class="problem-item">請求書発行や入金確認など、細かいけれど重要な作業がストレスになっている</li>
+                <li class="problem-item">孤独に作業する中で、「この手順で合っているのかな」とふと不安になる</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message reveal">
+        <div class="container">
+            <div class="message-box">
+                <h2 class="serif">「事務が苦手」「時間がない」…<br>その背景にある<span class="u-highlight">負担</span>をまるごと引き受けます。</h2>
+                <p>
+                    単なる作業の代行ではありません。<br>
+                    煩雑な事務を整理し、スムーズに流れる「仕組み」を作ること。<br>
+                    そして、あなたが一番輝ける場所にエネルギーを使えるようにすること。<br>
+                    それが、私の提供する「事務伴走サポート」です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefit reveal">
+        <div class="container">
+            <h2>プロに事務を任せることで訪れる景色</h2>
+            <div class="benefit-flex">
+                <div class="benefit-item">
+                    <h3>01. 事務ストレスからの解放</h3>
+                    <p>苦手な作業や後回しにしていた事務が片付くことで、心に「余白」が生まれます。視界が明るくなり、本業に集中できる環境が整います。</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>02. 本業への100%没頭</h3>
+                    <p>実務をプロに任せることで、あなたが一番輝ける仕事や、価値を生み出す活動に全エネルギーを注げるようになります。</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>03. 仕組み化による継続的なゆとり</h3>
+                    <p>単なる作業代行に留まらず、業務を整理し仕組み化することで、将来にわたって「追われない事務」の土台を築きます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section id="service" class="service reveal">
+        <div class="container">
+            <h2 class="u-text-center serif" style="font-size: 2.2rem;">あなたの「やりたいこと」を支える<br>3つの事務伴走サポート</h2>
+            <div class="service-grid">
+                <!-- Pillar 01 -->
+                <div class="service-card">
+                    <span class="service-num">01.</span>
+                    <h3>実務・運用代行</h3>
+                    <p>メール対応、フォーム作成、Zoom設定、データ入力、スケジュール管理など。あなたの手を止めている「煩わしい実務」を、プロの視点で迅速かつ丁寧に代行します。</p>
+                </div>
+                <!-- Pillar 02 -->
+                <div class="service-card">
+                    <span class="service-num">02.</span>
+                    <h3>IT・事務効率化サポート</h3>
+                    <p>各種ツールの導入設定やマニュアル作成、業務の仕組み化をサポート。「誰でもできる状態」を作ることで、長期的な業務負担の軽減を実現します。</p>
+                </div>
+                <!-- Pillar 03 -->
+                <div class="service-card">
+                    <span class="service-num">03.</span>
+                    <h3>バックオフィス伴走管理</h3>
+                    <p>事務全体の流れを見守り、期限管理や定例業務の維持をサポート。「いつでも頼れる事務局」として、あなたのビジネスの盤石な土台を支え続けます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section -->
+    <section class="message reveal u-text-center" style="background-color: var(--white);">
+        <div class="container">
+             <h2 class="serif u-mb-lg">事務を「もっと心地よく」</h2>
+             <div class="benefit-flex" style="color: var(--text-dark);">
+                <div class="benefit-item" style="background-color: var(--bg-light); border: 1px solid var(--accent-soft);">
+                    <h3 class="u-highlight">Trust Me</h3>
+                    <p>保険業界を中心に事務職歴25年。正確さとスピードが求められる現場で培った確かなスキルで支えます。</p>
+                </div>
+                <div class="benefit-item" style="background-color: var(--bg-light); border: 1px solid var(--accent-soft);">
+                    <h3 class="u-highlight">Empathy</h3>
+                    <p>カウンセラーとして培った「聴く力」で、実務の背後にある不安や負担にも寄り添える理解者であり続けます。</p>
+                </div>
+                <div class="benefit-item" style="background-color: var(--bg-light); border: 1px solid var(--accent-soft);">
+                    <h3 class="u-highlight">My Place</h3>
+                    <p>私にとって「情報を整理し、正確に整える時間」こそが、最も心が落ち着く大切な居場所です。</p>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile reveal">
+        <div class="container">
+            <div class="profile-flex">
+                <div class="profile-img">
+                    <img src="./profile.png" alt="吉原千晶">
+                </div>
+                <div class="profile-content">
+                    <h2 class="profile-name">吉原 千晶</h2>
+                    <p class="profile-ruby">Chiaki Yoshihara</p>
+                    <p>
+                        保険業界を中心に事務職歴25年。正確さとスピードが求められる環境で、誰かの仕事を支えることに誇りを持って取り組んできました。
+                    </p>
+                    <p style="margin-top: 15px;">
+                        かつては自分を押し殺して働く日々もありましたが、体調を崩したことを機に自分を見つめ直しました。そこで気づいたのは、私にとって「事務を正確に進め、情報を整理すること」こそが、最も自分らしくいられる時間だということです。
+                    </p>
+                    <p style="margin-top: 15px;">
+                         事務のスキルに、カウンセラーとしての学びを添えて。単なる代行ではなく、一人で頑張る経営者・起業家の皆様の「一番身近な事務局」でありたい。そんな想いで、一歩一歩を支えます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq reveal">
+        <div class="container">
+            <h2 class="u-text-center serif u-mb-lg">よくあるご質問</h2>
+            <div class="faq-item">
+                <span class="faq-q">どんな些細なことでも頼めますか？</span>
+                <p class="faq-a">はい、メール一本の対応から、ツールの初期設定まで幅広く承ります。まずは無料相談で「こんなこと頼める？」とお気軽にお聞きください。</p>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">秘密保持が心配です。</span>
+                <p class="faq-a">事務職として長年培ってきた厳格な管理体制のもと、お客様の情報は厳重に管理いたします。必要に応じて秘密保持契約（NDA）の締結も可能です。</p>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">パソコンが苦手なのですが大丈夫でしょうか。</span>
+                <p class="faq-a">全く問題ありません。むしろ、苦手な部分をまるごとお任せいただくためのサポートです。丁寧にご説明しながら、使いやすい仕組みを一緒に作っていきます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="container reveal">
+            <h2 class="serif">事務の「足踏み」を、<br>安心に変える第一歩。</h2>
+            <p class="u-mb-lg">
+                一人で頑張り続ける必要はありません。<br>
+                送信後、24時間以内に折り返しご連絡いたします。
+            </p>
+            
+            <div class="cta-price-box">
+                <h3 class="u-mb-lg u-highlight">30分 無料オンライン相談</h3>
+                <p style="margin-bottom: 30px;">「どんな事務を頼める？」「今の状況でもサポートできる？」<br>そんな気軽なご相談から歓迎です。</p>
+                <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="btn">無料相談に申し込む</a>
+                <a href="https://lin.ee/O3WdomY" target="_blank" class="btn btn-line">公式LINEで相談する</a>
+                <p style="font-size: 0.9rem; margin-top: 25px; color: var(--text-dark);">
+                    ※ご希望の方には、終了後に特別体験プランをご案内いたします。<br>
+                    無理な勧誘は一切ありませんので、ご安心ください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Administrative Support Partner. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

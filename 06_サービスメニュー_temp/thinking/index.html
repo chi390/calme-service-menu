@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思考整理 ＆ 事務伴走パートナー | 吉原 千晶</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d16210;
+            --secondary-color: #f8cbab;
+            --bg-color: #fff4eb;
+            --text-color: #422815;
+            --accent-color: #e32e04;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 20px auto 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg-color);
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(66, 40, 21, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Problem Section */
+        .problem {
+            background-color: var(--white);
+        }
+
+        .problem-box {
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .problem-list li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background-color: var(--bg-color);
+        }
+
+        .solution-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .solution-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Profile Section */
+        .profile {
+            background-color: var(--white);
+        }
+
+        .profile-flex {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-content {
+            flex: 2;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .cta-btn-line {
+            background-color: #06c755;
+            color: #ffffff;
+        }
+        
+        .cta-btn-line:hover {
+            background-color: #05b34c;
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-flex {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .cta-btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-flex">
+                <div class="hero-content">
+                    <p>思考整理 ＆ 事務伴走パートナー</p>
+                    <h1>「やりたいこと」に没頭できる、<br>心と時間のゆとりを。</h1>
+                    <p style="font-weight: normal; color: var(--text-color);">
+                        散らばった思考を整え、次の一歩をクリアにする<br>
+                        「思考整理（Thinking Partner）」セッション
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="./thinking_partner_hero.png" alt="思考整理中のパートナー">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">こんな「足踏み」をしていませんか？</h2>
+            <div class="problem-box">
+                <ul class="problem-list">
+                    <li>「来月はどうなるだろう」という漠然とした不安が、静かな夜にふと心をよぎる</li>
+                    <li>全ての決断をひとりで背負い、誰にも相談できず抱え込んでしまう時がある</li>
+                    <li>事務作業やIT設定に時間がかかり、本来大切にしたい「未来の種まき」が後回しになっている</li>
+                    <li>心のどこかで「自分だけでは限界かも」と, 出口の見えない迷いの中にいる</li>
+                </ul>
+            </div>
+            <p style="text-align: center; font-size: 1.1rem;">
+                その背景にある「心のモヤモヤ」まできちんと寄り添い、整理します。
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">思考が整い、次の一歩がクリアに</h2>
+            <div class="solution-card">
+                <h3>01. 脳内デトックス</h3>
+                <p>定期的なセッションで散らばったタスクを仕分け、優先順位を明確にします。「明日、何をするか迷わない」状態を作ります。</p>
+            </div>
+            <div style="margin-top: 30px;" class="solution-card">
+                <h3>02. 伴走型サポート</h3>
+                <p>「いつでも頼れる人がいる」という安心感が、あなたの挑戦を支えます。事務歴25年の経験とカウンセラーの心で、あなたの歩みを支えます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer">
+        <div class="container">
+            <h2 class="section-title">体験セッションのご案内</h2>
+            <div style="border: 2px solid var(--secondary-color); padding: 40px; border-radius: 15px; text-align: center;">
+                <h3 style="margin-bottom: 20px;">脳内デトックス ＆ 事務相談</h3>
+                <p style="font-size: 1.5rem; color: var(--primary-color); font-weight: 700;">30分：特別体験価格 2,000円（税込）</p>
+                <p style="margin-top: 20px;">
+                    「こんなこと頼める？」といったご質問も大歓迎です。<br>
+                    無理な勧誘は一切ありませんので、安心してお申し込みください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="container">
+            <h2 class="section-title">パートナープロフィール</h2>
+            <div class="profile-flex">
+                <div class="profile-image" style="flex: 1; min-width: 250px; text-align: center;">
+                    <img src="./事務サポートプロフィール.png" alt="吉原 千晶" style="max-width: 100%; border-radius: 50%; border: 5px solid var(--secondary-color); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                </div>
+                <div class="profile-content" style="flex: 2; min-width: 300px;">
+                    <p class="profile-name">吉原 千晶（Chiaki Yoshihara）</p>
+                    <p>保険業界を中心に事務職歴25年。地道にスキルを磨き、誰かの仕事を支えることに誇りを持って取り組んできました。</p>
+                    <p style="margin-top: 15px;">事務のスキルに、カウンセラーとしての学びを添えて。単なる作業代行ではなく、一人で頑張るあなたの不安や孤独にも寄り添える「一番身近な理解者」でありたいと願っています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>まずは、あなたの「心の声」を<br>聴かせてください</h2>
+            <p style="margin-bottom: 40px;">送信後、24時間以内に折り返しご連絡いたします。</p>
+            <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="cta-btn">体験セッションを申し込む</a>
+            <a href="https://lin.ee/O3WdomY" target="_blank" class="cta-btn cta-btn-line">公式LINEで相談する</a>
+        </div>
+    </section>
+
+</body>
+</html>

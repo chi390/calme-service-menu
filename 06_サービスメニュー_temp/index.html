@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calme Service Menu | あなたの「やりたい」を形にする上質なサポート</title>
+    <meta name="description" content="起業家のための事務代行・IT支援・思考整理。選べる3つのセレクトメニューから、継続的なサポートプランまで。Calme（カルム）があなたのビジネスの「心地よい」ペースを支えます。">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Premium Neutral Palette */
+            --bg-base: #FDFCF0;
+            --primary-accent: #D4AF37; /* Champagne Gold */
+            --primary-accent-light: #E8D39A;
+            --text-main: #333C44;
+            --text-muted: #5D6D7E;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.03em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/hero.png') center/cover no-repeat;
+            margin-bottom: 80px;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(253, 252, 240, 0.2), rgba(253, 252, 240, 0.8));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary-accent);
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--primary-accent);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+        .hero h1 span {
+            font-weight: 600;
+            color: var(--primary-accent);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Intro */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+        .section-header .line {
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-accent);
+            margin: 0 auto;
+        }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 4px;
+            padding: 40px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 5px solid var(--primary-accent);
+        }
+        .service-card::before {
+            content: 'VIEW PLAN';
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--primary-accent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            font-size: 0.75rem;
+            background-color: #F4F6F7;
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: var(--text-muted);
+        }
+
+        /* Highlight Card (Select Menu) */
+        .card-highlight {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #fffdf0 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        @media (max-width: 768px) {
+            .card-highlight { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            background-color: var(--text-main);
+            color: var(--white);
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            margin-bottom: 30px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--primary-accent); }
+        .copyright {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Calme</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Professional Support for Entrepreneurs</span>
+            <h1>あなたの「やりたい」に、<br><span>上質な伴走を。</span></h1>
+            <p>
+                プロの事務力とITの解決力で、<br>
+                あなたのビジネスの「心地よい」ペースを支えます。
+            </p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <div class="section-header">
+            <h2>SERVICE MENU</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="service-grid">
+            
+            <!-- Select Menu (Main) -->
+            <a href="select-menu/" class="service-card card-highlight">
+                <div style="flex: 1;">
+                    <span class="service-icon">✨</span>
+                    <h3>セレクトメニュー</h3>
+                    <p>
+                        今のあなたに必要なサポートを「3つ」自由に組み合わせる、新感覚のプランです。<br>
+                        1万円から始められる、もっとも手軽でパワフルな伴走支援です。
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">一番人気</span>
+                        <span class="tag">カスタマイズ可能</span>
+                        <span class="tag">月額10,000円〜</span>
+                    </div>
+                </div>
+                <div style="flex: 1; text-align: center; font-size: 5rem; opacity: 0.8;">
+                    🎁
+                </div>
+            </a>
+
+            <!-- Support Plan -->
+            <a href="support-plan/" class="service-card">
+                <span class="service-icon">🤝</span>
+                <h3>サポートプラン</h3>
+                <p>
+                    月単位で集中的にビジネスを加速させる伴走プラン。<br>
+                    仕組み作りから実務代行まで、トータルでサポートします。
+                </p>
+                <div class="service-tags">
+                    <span class="tag">本格伴走</span>
+                    <span class="tag">梅・竹・松</span>
+                </div>
+            </a>
+
+            <!-- Creative -->
+            <a href="creative/" class="service-card">
+                <span class="service-icon">🎨</span>
+                <h3>クリエイティブ制作</h3>
+                <p>
+                    LP制作、SNS用画像、バナー制作など。<br>
+                    あなたのブランドの世界観を美しく形にします。
+                </p>
+                <div class="service-tags">
+                    <span class="tag">LP制作</span>
+                    <span class="tag">デザイン</span>
+                </div>
+            </a>
+
+            <!-- Admin Support -->
+            <a href="admin-support/" class="service-card">
+                <span class="service-icon">📂</span>
+                <h3>事務・実務代行</h3>
+                <p>
+                    細かな事務作業や、お申し込み管理など。<br>
+                    プロの事務力であなたの時間を創出します。
+                </p>
+                <div class="service-tags">
+                    <span class="tag">事務コンシェルジュ</span>
+                    <span class="tag">実務代行</span>
+                </div>
+            </a>
+
+            <!-- Thinking -->
+            <a href="thinking/" class="service-card">
+                <span class="service-icon">🧠</span>
+                <h3>思考整理・コンサル</h3>
+                <p>
+                    「やりたいこと」を形にするための壁打ちサポート。<br>
+                    コンセプト設計からメニュー構築まで一緒に考えます。
+                </p>
+                <div class="service-tags">
+                    <span class="tag">壁打ち</span>
+                    <span class="tag">コンセプト設計</span>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Calme Support</div>
+            <div class="footer-links">
+                <a href="#">Official Line</a>
+                <a href="#">Contact</a>
+                <a href="#">Instagram</a>
+            </div>
+            <p class="copyright">&copy; 2026 Calme Support by Chiaki Yoshihara</p>
+        </div>
+    </footer>
+
+</body>
+</html>
