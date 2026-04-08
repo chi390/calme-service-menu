@@ -3,63 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calme セレクトメニュー | あなたの「やりたい」を加速させるビタミン・サポート</title>
-    <meta name="description" content="今のあなたに必要な「3つ」を自由に選ぶ、ワクワクする伴走支援。Basic/Plus/Professionalの3プラン。千晶＋AIアミがあなたのビジネスを明るく力強く支えます。">
+    <title>Calme セレクトメニュー | あなたの「これ、どうする？」を丸ごと解決</title>
+    <meta name="description" content="今のあなたに最適なサポートを組み合わせて選べる。Aリスト（サクッと整え）とBリスト（魅せる仕組み作り）から、自分のペースで選べる新感覚のセレクトメニュー。">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #FF8C00;    /* Vitamin Orange */
-            --secondary: #FFD700;  /* Sunny Yellow */
-            --accent: #00BFFF;     /* Sky Blue */
-            --accent-pink: #FF69B4; /* Fun Pink */
-            --bg: #FFF9F0;         /* Soft Cream */
+            --gold: #D4AF37;
+            --gold-light: #F9F0CD;
+            --charcoal: #333C44;
+            --charcoal-soft: #4B5D67;
+            --cream: #FDFCF0;
             --white: #ffffff;
-            --text: #422815;       /* Deep Brown for readability */
-            --gray: #F0F2F5;
-            --shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
-            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glass: rgba(255, 255, 255, 0.92);
+            --border: rgba(212, 175, 55, 0.2);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            word-wrap: break-word;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.85;
+            letter-spacing: 0.03em;
+            -webkit-font-smoothing: antialiased;
         }
+
+        .serif { font-family: 'Cormorant Garamond', 'Noto Sans JP', serif; }
 
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== DECORATIONS ===== */
-        .dot-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(var(--secondary) 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.1;
-            z-index: -1;
+            padding: 0 28px;
         }
 
         /* ===== HEADER ===== */
         header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
+            padding: 20px 0;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border);
         }
         .header-inner {
             display: flex;
@@ -67,443 +61,283 @@
             align-items: center;
         }
         .logo {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.1em;
             text-decoration: none;
-            letter-spacing: -1px;
         }
-        .logo span { color: var(--accent); }
         .back-link {
-            font-size: 0.9rem;
-            color: var(--text);
+            font-size: 0.82rem;
+            color: var(--charcoal-soft);
             text-decoration: none;
-            font-weight: 600;
-            background: var(--gray);
-            padding: 8px 16px;
-            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: var(--transition);
         }
-        .back-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateX(-5px);
-        }
+        .back-link:hover { color: var(--gold); transform: translateX(-4px); }
 
         /* ===== HERO ===== */
         .hero {
             padding: 100px 0 80px;
             text-align: center;
-            position: relative;
-        }
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            color: var(--text);
-        }
-        .hero-title span {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        .hero-title span::after {
-            content: '';
-            position: absolute;
-            bottom: 5px; left: 0; width: 100%; height: 15px;
-            background: var(--secondary);
-            z-index: -1;
-            opacity: 0.5;
-        }
-        .hero-desc {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 400;
+            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
         }
         .hero-badge {
             display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 10px 25px;
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 6px 20px;
             border-radius: 50px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            transform: rotate(-2deg);
-            box-shadow: 5px 5px 0 var(--text);
+            margin-bottom: 32px;
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.35;
+            margin-bottom: 32px;
+        }
+        .hero h1 span { color: var(--gold); font-style: italic; }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--charcoal-soft);
+            max-width: 680px;
+            margin: 0 auto 48px;
+            font-weight: 300;
         }
 
-        /* ===== GRID ===== */
+        /* ===== MENU TABLES (A/B) ===== */
+        .menu-tables { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; margin-bottom: 16px; }
+        .section-line { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 20px; }
+        
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .menu-box {
+            background: var(--white);
+            border-radius: 2px;
+            padding: 48px 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .menu-box-header { margin-bottom: 32px; }
+        .menu-box-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+        .menu-box-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
+        .menu-box-sub { font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+        
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--charcoal-soft);
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(0,0,0,0.06);
+        }
+        .menu-item:last-child { border-bottom: none; }
+        .menu-item::before { content: '◇'; color: var(--gold); font-size: 0.8rem; margin-top: 2px; }
+
+        /* Plan-box specific colors */
+        .color-a { border-top: 4px solid var(--gold); }
+        .color-b { border-top: 4px solid var(--charcoal); }
+
+        /* ===== PLANS (SELECTION RULES) ===== */
+        .plans-section { padding: 100px 0; background: var(--white); }
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
         }
-
         .plan-card {
-            background: var(--white);
-            border: 4px solid var(--text);
-            border-radius: 24px;
-            padding: 50px 30px;
+            background: var(--cream);
+            padding: 50px 36px;
             text-align: center;
-            position: relative;
+            border-radius: 2px;
             transition: var(--transition);
+            border: 1px solid transparent;
         }
         .plan-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 15px 15px 0 var(--secondary);
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
         }
-        .plan-header h3 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .plan-price span { font-size: 1rem; color: var(--text); }
+        .plan-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 8px; }
+        .plan-price { font-size: 2.2rem; font-weight: 400; color: var(--gold); margin-bottom: 24px; }
+        .plan-price span { font-size: 0.9rem; color: var(--charcoal-soft); }
         
-        .plan-tagline {
-            background: var(--gray);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 30px;
-            display: inline-block;
-        }
-
-        .plan-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 40px;
-        }
-        .plan-features li {
-            padding: 12px 0;
-            border-bottom: 2px dashed var(--gray);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .plan-features li::before {
-            content: '🍊';
-            font-size: 1.2rem;
-        }
-
-        /* Plan-specific colors */
-        .plan-basic { border-color: var(--secondary); }
-        .plan-plus { border-color: var(--primary); box-shadow: 10px 10px 0 var(--secondary); }
-        .plan-pro { border-color: var(--accent); }
-        .plan-plus .plan-header h3 { color: var(--primary); }
-        .plan-pro .plan-header h3 { color: var(--accent); }
-
-        .recommended-label {
-            position: absolute;
-            top: -20px; left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-pink);
-            color: white;
-            padding: 5px 25px;
-            border-radius: 50px;
-            font-weight: 900;
-            font-size: 1rem;
-            z-index: 2;
-            white-space: nowrap;
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border: 3px solid var(--text);
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 6px 6px 0 var(--text);
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 2px 2px 0 var(--text);
-        }
-        .btn-accent {
-            background: var(--accent);
-            color: white;
-            box-shadow: 6px 6px 0 var(--text);
-        }
-
-        /* ===== MENU LIST ===== */
-        .menu-list-section {
+        .selection-rule {
             background: var(--white);
-            padding: 100px 0;
-            border-radius: 60px 60px 0 0;
-            margin-top: 80px;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 60px;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-        .category-box {
-            padding: 30px;
-            border-radius: 24px;
-            background: var(--bg);
-            border: 3px solid var(--gray);
-            transition: var(--transition);
-        }
-        .category-box:hover {
-            border-color: var(--primary);
-            background: var(--white);
-        }
-        .category-box h4 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .category-items {
-            list-style: none;
+            padding: 16px 20px;
+            border-radius: 2px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text);
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
         }
-        .category-items li {
-            margin-bottom: 10px;
-            display: flex;
-            gap: 8px;
+        .selection-rule span { color: var(--gold); font-size: 1.1rem; }
+        
+        .plan-target { font-size: 0.88rem; color: var(--charcoal-soft); font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            transition: var(--transition);
         }
-        .category-items li::before { content: '✔'; color: var(--primary); }
-
-        /* ===== HOW IT WORKS ===== */
-        .how-to {
-            padding: 100px 0;
-            background: var(--secondary);
-            text-align: center;
-        }
-        .step-circles {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 60px;
-        }
-        .step-circle {
-            width: 250px;
-            text-align: center;
-        }
-        .circle-num {
-            width: 100px;
-            height: 100px;
-            background: var(--white);
-            border: 5px solid var(--text);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
+        .btn:hover { background: var(--charcoal); transform: translateY(-2px); }
 
         /* ===== CTA ===== */
         .cta {
-            padding: 120px 0;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 100px 0;
             text-align: center;
-            background: var(--bg);
         }
+        .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; margin-bottom: 24px; }
+        .cta-desc { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 48px; }
 
         /* ===== FOOTER ===== */
-        footer {
-            padding: 60px 0;
-            background: var(--text);
-            color: var(--white);
-            text-align: center;
-        }
+        footer { padding: 40px 0; text-align: center; font-size: 0.75rem; color: var(--charcoal-soft); border-top: 1px solid var(--border); }
 
-        /* ===== ANIMATION ===== */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .floating { animation: float 4s ease-in-out infinite; }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .tables-grid { grid-template-columns: 1fr; }
             .plans-grid { grid-template-columns: 1fr; }
-            .step-circles { flex-direction: column; align-items: center; }
+            .hero h1 { font-size: 2.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="dot-bg"></div>
-
     <header>
         <div class="container">
             <div class="header-inner">
-                <a href="../" class="logo">Calme<span>.</span></a>
-                <a href="../" class="back-link">← MENU</a>
+                <a href="../" class="logo">Calme</a>
+                <a href="../" class="back-link">← CLOSE</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <span class="hero-badge floating">2026 NEW MENU!</span>
-            <h1 class="hero-title">今のあなたに、<br>最高にちょうどいい<span>「3つ」</span>を。</h1>
+            <span class="hero-badge">Select Menu Selection</span>
+            <h1>起業初期の<span>「これ、どうする？」</span>を<br>丸ごと解決！</h1>
             <p class="hero-desc">
-                セレクトメニューは、事務・IT・思考整理など豊富なメニューから<br>
-                今月やりたいことだけを自由に選べる、ワクワクする伴走支援です！
+                あなたのビジネスが動き出す、選べる集客サポート・セレクション。<br>
+                「今」必要なものをリストから自由に組み合わせて、最適なサポート環境を整えます。
             </p>
-            <a href="#plans" class="btn btn-primary">プランを選ぶ！</a>
         </div>
     </section>
 
-    <section id="plans" class="container">
-        <div class="plans-grid">
-            
-            <!-- Basic -->
-            <div class="plan-card plan-basic">
-                <div class="plan-header">
-                    <h3>Basic</h3>
-                    <div class="plan-price">¥10,000<span>/月</span></div>
-                    <span class="plan-tagline">まずはお試し、土台作り！</span>
-                </div>
-                <ul class="plan-features">
-                    <li>月1回 Zoom作戦会議</li>
-                    <li>お好きなメニューを<strong>3つ</strong></li>
-                    <li>基本の事務・IT設定サポート</li>
-                    <li>千晶＋AIアミの伴走</li>
-                </ul>
-                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-outline" style="width: 100%;">これにする！</a>
-            </div>
-
-            <!-- Plus -->
-            <div class="plan-card plan-plus">
-                <div class="recommended-label">一番人気！</div>
-                <div class="plan-header">
-                    <h3>Plus</h3>
-                    <div class="plan-price">¥20,000<span>/月</span></div>
-                    <span class="plan-tagline">着実に前進したいあなたへ！</span>
-                </div>
-                <ul class="plan-features">
-                    <li>月1回 Zoom作戦会議</li>
-                    <li>お好きなメニューを<strong>3つ</strong></li>
-                    <li><strong>チャット相談（月5回まで）</strong></li>
-                    <li>デザイン制作代行などもOK</li>
-                    <li>千晶＋AIアミの強力サポート</li>
-                </ul>
-                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-primary" style="width: 100%;">これにする！</a>
-            </div>
-
-            <!-- Professional -->
-            <div class="plan-card plan-pro">
-                <div class="plan-header">
-                    <h3>Professional</h3>
-                    <div class="plan-price">¥30,000<span>/月</span></div>
-                    <span class="plan-tagline">本気で加速！まるごとお任せ！</span>
-                </div>
-                <ul class="plan-features">
-                    <li>月1回 Zoom作戦会議</li>
-                    <li>お好きなメニューを<strong>3つ</strong></li>
-                    <li><strong>チャット相談（無制限）</strong></li>
-                    <li>LP制作・LINE構築などの高度な実務</li>
-                    <li>最強のビジネスパートナーとして伴走</li>
-                </ul>
-                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-accent" style="width: 100%;">これにする！</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="menu-list-section">
+    <section class="menu-tables">
         <div class="container">
-            <h2 class="section-title">選べるメニュー！</h2>
-            <div class="category-grid">
-                
-                <div class="category-box">
-                    <h4>🧠 思考整理</h4>
-                    <ul class="category-items">
-                        <li>ビジネスの方向性と言語化</li>
-                        <li>メニュー価格・内容の見直し</li>
-                        <li>理想のお客様（ペルソナ）設定</li>
-                        <li>月次ゴールとアクション作成</li>
+            <div class="section-header">
+                <h2 class="section-title">サポート・メニューリスト</h2>
+                <div class="section-line"></div>
+                <p style="font-size: 0.9rem; font-weight: 300;">各プランに合わせて、この2つのリストからお好きな項目をお選びいただけます。</p>
+            </div>
+
+            <div class="tables-grid">
+                <!-- List A -->
+                <div class="menu-box color-a">
+                    <div class="menu-box-header">
+                        <span class="menu-box-icon">🌱</span>
+                        <h3 class="menu-box-title">リスト A：サクッと整え</h3>
+                        <p class="menu-box-sub">まずは目の前の作業を整理して、足固めをしたい方へ</p>
+                    </div>
+                    <ul class="menu-list">
+                        <li class="menu-item">今月のTODOリスト作成 (Zoom30分付)</li>
+                        <li class="menu-item">お申込み用フォーム作成 (Google等)</li>
+                        <li class="menu-item">SNS投稿画像・テンプレ制作 (3枚)</li>
+                        <li class="menu-item">公式LINE 基本プロフィール設定</li>
+                        <li class="menu-item">AI活用ミニレクチャー (30分)</li>
+                        <li class="menu-item">ブログ・メルマガ入稿代行 (1回)</li>
                     </ul>
                 </div>
 
-                <div class="category-box">
-                    <h4>💻 IT・設定</h4>
-                    <ul class="category-items">
-                        <li>公式LINE アカウント開設・設定</li>
-                        <li>ステップ配信シナリオ作成</li>
-                        <li>ChatGPT/Canva使いこなし術</li>
-                        <li>お申込みフォーム作成</li>
+                <!-- List B -->
+                <div class="menu-box color-b">
+                    <div class="menu-box-header">
+                        <span class="menu-box-icon">💎</span>
+                        <h3 class="menu-box-title">リスト B：魅せる仕組み作り</h3>
+                        <p class="menu-box-sub">集客の窓口を作り、一気に仕組みを構築したい方へ</p>
+                    </div>
+                    <ul class="menu-list">
+                        <li class="menu-item">LP（告知ページ）構成案作成サポート</li>
+                        <li class="menu-item">公式LINEリッチメニュー制作・設置</li>
+                        <li class="menu-item">SNS投稿画像・テンプレ制作 (3枚)</li>
+                        <li class="menu-item">リットリンク（リンクまとめ）作成</li>
+                        <li class="menu-item">Canva個別操作レクチャー (60分)</li>
+                        <li class="menu-item">公式LINEステップ配信作成支援</li>
+                        <li class="menu-item">ブログ・メルマガ入稿代行 (1回)</li>
+                        <li class="menu-item">事務サポート90分（丸投げパック）</li>
                     </ul>
                 </div>
-
-                <div class="category-box">
-                    <h4>🎨 クリエイティブ</h4>
-                    <ul class="category-items">
-                        <li>LP（簡易版）の制作</li>
-                        <li>Canvaデザイン制作代行</li>
-                        <li>SNS投稿画像テンプレート</li>
-                        <li>サービス案内PDF作成</li>
-                    </ul>
-                </div>
-
-                <div class="category-box">
-                    <h4>📂 事務・代行</h4>
-                    <ul class="category-items">
-                        <li>案内・お礼メールの文章作成</li>
-                        <li>スケジュール・予約管理整備</li>
-                        <li>ブログ・SNS投稿の下書き</li>
-                        <li>データ整理・各種シート作成</li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section class="how-to">
+    <section id="plans" class="plans-section">
         <div class="container">
-            <h2 class="section-title">お申し込みの流れ</h2>
-            <div class="step-circles">
-                <div class="step-circle">
-                    <div class="circle-num">1</div>
-                    <p><strong>無料相談</strong><br>まずは30分お話ししましょう！</p>
+            <div class="section-header">
+                <h2 class="section-title">プラン別・選び方のルール</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Basic -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <div class="plan-price">¥10,000<span> /月</span></div>
+                    <div class="selection-rule">リスト A から <span>3つ</span> 選択</div>
+                    <p class="plan-target">
+                        「まずは目の前の作業を整理して、事務的な足固めをしたい」初心者さんに。
+                    </p>
+                    <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn">SELECT</a>
                 </div>
-                <div class="step-circle">
-                    <div class="circle-num">2</div>
-                    <p><strong>プラン決定</strong><br>今のあなたに合う内容を決定！</p>
+
+                <!-- Plus -->
+                <div class="plan-card" style="border: 1px solid var(--gold);">
+                    <h3 class="plan-name">Plus</h3>
+                    <div class="plan-price">¥20,000<span> /月</span></div>
+                    <div class="selection-rule">リスト A から <span>2つ</span> ＋ B から <span>1つ</span> 選択</div>
+                    <p class="plan-target">
+                        「日々の運用を回しつつ、LINEやリットリンクで集客の窓口を作りたい」方に。
+                    </p>
+                    <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn">SELECT</a>
                 </div>
-                <div class="step-circle">
-                    <div class="circle-num">3</div>
-                    <p><strong>伴走スタート</strong><br>ワクワクする1ヶ月が始まります！</p>
+
+                <!-- Professional -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price">¥30,000<span> /月</span></div>
+                    <div class="selection-rule">リスト A から <span>1つ</span> ＋ B から <span>2つ</span> 選択</div>
+                    <p class="plan-target">
+                        「LPもLINEも！一気に集客の仕組みをプロの手で構築してほしい」本気の方に。
+                    </p>
+                    <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn">SELECT</a>
                 </div>
             </div>
         </div>
@@ -511,11 +345,9 @@
 
     <section class="cta">
         <div class="container">
-            <h2 class="section-title">あなたの「やりたい」を、<br>私と一緒に形にしませんか？</h2>
-            <p style="margin-bottom: 40px; font-weight: 700;">まずは無料相談から、お気軽にお声がけください！</p>
-            <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="btn btn-primary" style="padding: 25px 60px; font-size: 1.5rem;">
-                30分無料相談に申し込む！
-            </a>
+            <h2 class="cta-title">まずは、30分の無理相談でお話ししましょう</h2>
+            <p class="cta-desc">「今の私に必要なメニューはどれ？」そんなご相談からで大丈夫です。</p>
+            <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn" style="background: var(--white); color: var(--charcoal); padding: 20px 60px;">無料相談に申し込む</a>
         </div>
     </section>
 

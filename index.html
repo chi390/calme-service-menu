@@ -150,22 +150,21 @@
             border-top: 5px solid transparent;
         }
         .service-card:hover {
-            transform: translateY(-10px);
-            border-top: 5px solid var(--primary-accent);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.12);
+            border-color: var(--gold);
         }
-        .service-card::before {
-            content: 'VIEW PLAN';
-            position: absolute;
-            top: 20px; right: 20px;
-            font-size: 0.7rem;
+
+        .card-action {
+            font-size: 0.78rem;
+            color: var(--gold);
+            font-weight: 600;
             letter-spacing: 0.1em;
-            color: var(--primary-accent);
-            opacity: 0;
+            margin-top: 20px;
+            opacity: 0.8;
             transition: var(--transition);
         }
-        .service-card:hover::before {
-            opacity: 1;
-        }
+        .service-card:hover .card-action { opacity: 1; transform: translateX(5px); }
 
         .service-icon {
             font-size: 2.5rem;
@@ -271,77 +270,66 @@
             <!-- Select Menu (Main) -->
             <a href="select-menu/" class="service-card card-highlight">
                 <div style="flex: 1;">
-                    <span class="service-icon">✨</span>
+                    <span class="service-icon">🎁</span>
                     <h3>セレクトメニュー</h3>
                     <p>
-                        今のあなたに必要なサポートを「3つ」自由に組み合わせる、新感覚のプランです。<br>
-                        1万円から始められる、もっとも手軽でパワフルな伴走支援です。
+                        「事務もITも、必要な分だけ頼みたい」を叶える、Calme独自のセレクトプラン。<br>
+                        2つのリストから今のあなたに必要なサポートを自由に組み合わせ、自分だけのオーダーメイドプランが作れます。
                     </p>
                     <div class="service-tags">
-                        <span class="tag">一番人気</span>
-                        <span class="tag">カスタマイズ可能</span>
+                        <span class="tag">自由な組み合わせ</span>
+                        <span class="tag">選べるA/Bリスト</span>
                         <span class="tag">月額10,000円〜</span>
                     </div>
                 </div>
-                <div style="flex: 1; text-align: center; font-size: 5rem; opacity: 0.8;">
-                    🎁
-                </div>
+                <div class="card-action">詳しく見る →</div>
             </a>
 
             <!-- Support Plan -->
             <a href="support-plan/" class="service-card">
-                <span class="service-icon">🤝</span>
-                <h3>サポートプラン</h3>
-                <p>
-                    月単位で集中的にビジネスを加速させる伴走プラン。<br>
-                    仕組み作りから実務代行まで、トータルでサポートします。
-                </p>
-                <div class="service-tags">
-                    <span class="tag">本格伴走</span>
-                    <span class="tag">3つの価格帯</span>
+                <div style="flex: 1;">
+                    <span class="service-icon">🤝</span>
+                    <h3>サポートプラン</h3>
+                    <p>
+                        月単位で集中的にビジネスを加速させる伴走プラン。<br>
+                        仕組み作りから実務代行まで、トータルでサポートします。
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">本格伴走</span>
+                        <span class="tag">3つの価格帯</span>
+                    </div>
                 </div>
+                <div class="card-action">詳しく見る →</div>
             </a>
 
             <!-- Creative -->
             <a href="creative/" class="service-card">
-                <span class="service-icon">🎨</span>
-                <h3>クリエイティブ制作</h3>
-                <p>
-                    LP制作、SNS用画像、バナー制作など。<br>
-                    あなたのブランドの世界観を美しく形にします。
-                </p>
-                <div class="service-tags">
-                    <span class="tag">LP制作</span>
-                    <span class="tag">デザイン</span>
+                <div style="flex: 1;">
+                    <span class="service-icon">🎨</span>
+                    <h3>クリエイティブ制作</h3>
+                    <p>LP制作、公式LINEリッチメニュー、SNS画像制作など。あなたのビジネスに「彩り」と「集客力」をプラスします。</p>
                 </div>
+                <div class="card-action">詳しく見る →</div>
             </a>
 
             <!-- Admin Support -->
             <a href="admin-support/" class="service-card">
-                <span class="service-icon">📂</span>
-                <h3>事務・実務代行</h3>
-                <p>
-                    細かな事務作業や、お申し込み管理など。<br>
-                    プロの事務力であなたの時間を創出します。
-                </p>
-                <div class="service-tags">
-                    <span class="tag">事務コンシェルジュ</span>
-                    <span class="tag">実務代行</span>
+                <div style="flex: 1;">
+                    <span class="service-icon">📂</span>
+                    <h3>事務・秘書サポート</h3>
+                    <p>面倒な事務作業を手放して、本来の仕事に集中。メール対応、予約管理、データ整理などをスマートに代行します。</p>
                 </div>
+                <div class="card-action">詳しく見る →</div>
             </a>
 
             <!-- Thinking -->
             <a href="thinking/" class="service-card">
-                <span class="service-icon">🧠</span>
-                <h3>思考整理・コンサル</h3>
-                <p>
-                    「やりたいこと」を形にするための壁打ちサポート。<br>
-                    コンセプト設計からメニュー構築まで一緒に考えます。
-                </p>
-                <div class="service-tags">
-                    <span class="tag">壁打ち</span>
-                    <span class="tag">コンセプト設計</span>
+                <div style="flex: 1;">
+                    <span class="service-icon">🧠</span>
+                    <h3>思考整理・パートナー</h3>
+                    <p>一人で抱え込まずに、まずはアウトプット。あなたの頭の中を整理し、次の一歩を明確にする壁打ちサポートです。</p>
                 </div>
+                <div class="card-action">詳しく見る →</div>
             </a>
 
         </div>
