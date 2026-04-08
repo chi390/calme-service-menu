@@ -3,60 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calme セレクトメニュー | 今のあなたに必要な「3つ」を自由に選ぶ</title>
-    <meta name="description" content="起業家のための完全カスタマイズ型サポート。事務代行・IT設定・LP制作・思考整理など多彩なメニューから3つを選んで、月1万円〜始められます。千晶＋AIアミの二人体制でお届けするCalmeのセレクトメニュー。">
+    <title>Calme セレクトメニュー | あなたの「やりたい」を加速させるビタミン・サポート</title>
+    <meta name="description" content="今のあなたに必要な「3つ」を自由に選ぶ、ワクワクする伴走支援。Basic/Plus/Professionalの3プラン。千晶＋AIアミがあなたのビジネスを明るく力強く支えます。">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Outfit:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #D4AF37;
-            --gold-light: #EDD67A;
-            --gold-pale: #F9F0CD;
-            --charcoal: #333C44;
-            --charcoal-soft: #4B5D67;
-            --cream: #FDFCF0;
-            --cream-deep: #F5F0DC;
+            --primary: #FF8C00;    /* Vitamin Orange */
+            --secondary: #FFD700;  /* Sunny Yellow */
+            --accent: #00BFFF;     /* Sky Blue */
+            --accent-pink: #FF69B4; /* Fun Pink */
+            --bg: #FFF9F0;         /* Soft Cream */
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.88);
-            --shadow-soft: 0 20px 60px rgba(212, 175, 55, 0.08);
-            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.06);
-            --transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --text: #422815;       /* Deep Brown for readability */
+            --gray: #F0F2F5;
+            --shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-            background-color: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.85;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             overflow-x: hidden;
-            letter-spacing: 0.03em;
-            -webkit-font-smoothing: antialiased;
+            word-wrap: break-word;
         }
-
-        .serif { font-family: 'Cormorant Garamond', 'Noto Sans JP', serif; }
 
         .container {
             width: 100%;
-            max-width: 1080px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 20px;
+        }
+
+        /* ===== DECORATIONS ===== */
+        .dot-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--secondary) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            z-index: -1;
         }
 
         /* ===== HEADER ===== */
         header {
-            padding: 24px 0;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .header-inner {
             display: flex;
@@ -64,987 +67,463 @@
             align-items: center;
         }
         .logo {
-            font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            font-weight: 300;
-            color: var(--gold);
-            letter-spacing: 0.12em;
-        }
-        .header-back {
-            font-size: 0.82rem;
-            color: var(--charcoal-soft);
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
-            letter-spacing: 0.08em;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            letter-spacing: -1px;
         }
-        .header-back:hover { opacity: 1; color: var(--gold); }
+        .logo span { color: var(--accent); }
+        .back-link {
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--gray);
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(-5px);
+        }
 
         /* ===== HERO ===== */
         .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
+            padding: 100px 0 80px;
             text-align: center;
             position: relative;
-            padding: 100px 0 80px;
-            overflow: hidden;
         }
-        .hero::before {
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+        .hero-title span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title span::after {
             content: '';
             position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+            bottom: 5px; left: 0; width: 100%; height: 15px;
+            background: var(--secondary);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .hero-desc {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
         }
         .hero-badge {
             display: inline-block;
-            font-size: 0.78rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 8px 24px;
+            background: var(--accent);
+            color: white;
+            padding: 10px 25px;
             border-radius: 50px;
-            margin-bottom: 36px;
-            animation: fadeInUp 0.8s ease both;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0 var(--text);
         }
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            line-height: 1.45;
-            color: var(--charcoal);
-            margin-bottom: 28px;
-            animation: fadeInUp 0.8s 0.1s ease both;
+
+        /* ===== GRID ===== */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
         }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--gold);
+
+        .plan-card {
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 24px;
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
         }
-        .hero-lead {
-            font-size: 1.05rem;
-            color: var(--charcoal-soft);
-            max-width: 580px;
-            margin: 0 auto 48px;
-            animation: fadeInUp 0.8s 0.2s ease both;
-            font-weight: 300;
+        .plan-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 15px 15px 0 var(--secondary);
         }
-        .hero-cta-group {
+        .plan-header h3 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .plan-price span { font-size: 1rem; color: var(--text); }
+        
+        .plan-tagline {
+            background: var(--gray);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 2px dashed var(--gray);
+            font-weight: 600;
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s 0.3s ease both;
+            align-items: center;
+            gap: 10px;
+        }
+        .plan-features li::before {
+            content: '🍊';
+            font-size: 1.2rem;
+        }
+
+        /* Plan-specific colors */
+        .plan-basic { border-color: var(--secondary); }
+        .plan-plus { border-color: var(--primary); box-shadow: 10px 10px 0 var(--secondary); }
+        .plan-pro { border-color: var(--accent); }
+        .plan-plus .plan-header h3 { color: var(--primary); }
+        .plan-pro .plan-header h3 { color: var(--accent); }
+
+        .recommended-label {
+            position: absolute;
+            top: -20px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-pink);
+            color: white;
+            padding: 5px 25px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1rem;
+            z-index: 2;
+            white-space: nowrap;
         }
 
         /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
-            padding: 16px 40px;
-            border-radius: 2px;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            padding: 18px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 900;
+            font-size: 1.1rem;
             transition: var(--transition);
+            border: 3px solid var(--text);
             cursor: pointer;
-            border: none;
         }
         .btn-primary {
-            background: var(--gold);
-            color: var(--white);
-            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.35);
+            background: var(--primary);
+            color: white;
+            box-shadow: 6px 6px 0 var(--text);
         }
         .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.45);
+            transform: scale(1.05);
+            box-shadow: 2px 2px 0 var(--text);
         }
-        .btn-outline {
-            background: transparent;
-            color: var(--charcoal);
-            border: 1px solid rgba(51, 60, 68, 0.3);
-        }
-        .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-3px);
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+            box-shadow: 6px 6px 0 var(--text);
         }
 
-        /* ===== SECTION HEADER ===== */
-        .section-label {
-            font-size: 0.72rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 16px;
-            display: block;
+        /* ===== MENU LIST ===== */
+        .menu-list-section {
+            background: var(--white);
+            padding: 100px 0;
+            border-radius: 60px 60px 0 0;
+            margin-top: 80px;
         }
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 300;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .section-line {
-            width: 48px;
-            height: 1px;
-            background: var(--gold);
-            margin: 0 auto 20px;
-        }
-        .section-desc {
-            font-size: 0.95rem;
-            color: var(--charcoal-soft);
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-            line-height: 1.9;
-        }
-        section { padding: 100px 0; }
-
-        /* ===== HOW IT WORKS ===== */
-        .how-section {
-            background: var(--white);
-        }
-        .how-section .section-header { text-align: center; margin-bottom: 70px; }
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            position: relative;
-        }
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 36px;
-            left: calc(16.66% + 20px);
-            right: calc(16.66% + 20px);
-            height: 1px;
-            background: linear-gradient(to right, var(--gold), var(--gold-light), var(--gold));
-            opacity: 0.3;
-        }
-        .step {
             text-align: center;
-            position: relative;
-        }
-        .step-num {
-            width: 72px;
-            height: 72px;
-            background: var(--cream);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--gold);
-            position: relative;
-            z-index: 1;
-        }
-        .step h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .step p {
-            font-size: 0.88rem;
-            color: var(--charcoal-soft);
-            font-weight: 300;
-        }
-
-        /* ===== PRICE PLANS ===== */
-        .plans-section {
-            background: var(--cream);
-        }
-        .plans-section .section-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .plans-note {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--charcoal-soft);
+            font-size: 3rem;
+            font-weight: 900;
             margin-bottom: 60px;
-            font-weight: 300;
-            background: rgba(212, 175, 55, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 16px 32px;
-            display: inline-block;
-            border-radius: 2px;
         }
-        .plans-note-wrap { text-align: center; }
-        .plans-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-        .plan-card {
-            background: var(--white);
-            border-radius: 2px;
-            padding: 48px 36px;
-            text-align: center;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-            position: relative;
-            border-top: 3px solid transparent;
-        }
-        .plan-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-soft);
-            border-top-color: var(--gold);
-        }
-        .plan-card.featured {
-            border-top-color: var(--gold);
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-soft);
-        }
-        .plan-featured-badge {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--white);
-            font-size: 0.72rem;
-            letter-spacing: 0.15em;
-            padding: 5px 20px;
-            white-space: nowrap;
-        }
-        .plan-emoji { font-size: 2.2rem; margin-bottom: 20px; }
-        .plan-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 6px;
-        }
-        .plan-sub {
-            font-size: 0.8rem;
-            color: var(--charcoal-soft);
-            margin-bottom: 28px;
-            font-weight: 300;
-        }
-        .plan-price {
-            font-size: 2.6rem;
-            font-weight: 600;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        .plan-price small {
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--charcoal-soft);
-        }
-        .plan-tax {
-            font-size: 0.75rem;
-            color: var(--charcoal-soft);
-            margin-bottom: 28px;
-        }
-        .plan-choose {
-            font-size: 0.85rem;
-            background: var(--cream-deep);
-            padding: 10px 20px;
-            border-radius: 2px;
-            margin-bottom: 28px;
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-        .plan-desc {
-            font-size: 0.88rem;
-            color: var(--charcoal-soft);
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        /* ===== MENU CATEGORIES ===== */
-        .menu-section {
-            background: var(--white);
-        }
-        .menu-section .section-header { text-align: center; margin-bottom: 60px; }
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
-        .category-card {
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 2px;
-            padding: 36px 36px 32px;
-            transition: var(--transition);
-            background: var(--cream);
-            position: relative;
-            overflow: hidden;
-        }
-        .category-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--gold);
-            opacity: 0;
+        .category-box {
+            padding: 30px;
+            border-radius: 24px;
+            background: var(--bg);
+            border: 3px solid var(--gray);
             transition: var(--transition);
         }
-        .category-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
+        .category-box:hover {
+            border-color: var(--primary);
             background: var(--white);
-            transform: translateX(4px);
         }
-        .category-card:hover::before { opacity: 1; }
-        .category-header {
+        .category-box h4 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
+            gap: 10px;
         }
-        .category-icon { font-size: 1.8rem; }
-        .category-name {
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-        .category-tag {
-            font-size: 0.7rem;
-            background: rgba(212, 175, 55, 0.12);
-            color: var(--gold);
-            padding: 3px 12px;
-            border-radius: 50px;
-            letter-spacing: 0.08em;
-            margin-left: auto;
-        }
-        .menu-list {
+        .category-items {
             list-style: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .category-items li {
+            margin-bottom: 10px;
             display: flex;
-            flex-direction: column;
             gap: 8px;
         }
-        .menu-list li {
-            font-size: 0.88rem;
-            color: var(--charcoal-soft);
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-weight: 300;
-        }
-        .menu-list li::before {
-            content: '◇';
-            color: var(--gold);
-            font-size: 0.7rem;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
+        .category-items li::before { content: '✔'; color: var(--primary); }
 
-        /* ===== MERIT ===== */
-        .merit-section {
-            background: var(--cream);
-        }
-        .merit-section .section-header { text-align: center; margin-bottom: 60px; }
-        .merit-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 36px;
-        }
-        .merit-item {
+        /* ===== HOW IT WORKS ===== */
+        .how-to {
+            padding: 100px 0;
+            background: var(--secondary);
             text-align: center;
-            padding: 40px 28px;
+        }
+        .step-circles {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .step-circle {
+            width: 250px;
+            text-align: center;
+        }
+        .circle-num {
+            width: 100px;
+            height: 100px;
             background: var(--white);
-            border-radius: 2px;
-            box-shadow: var(--shadow-card);
-            transition: var(--transition);
-        }
-        .merit-item:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-soft);
-        }
-        .merit-icon {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .merit-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .merit-desc {
-            font-size: 0.85rem;
-            color: var(--charcoal-soft);
-            font-weight: 300;
-            line-height: 1.85;
-        }
-
-        /* ===== FLOW ===== */
-        .flow-section { background: var(--white); }
-        .flow-section .section-header { text-align: center; margin-bottom: 60px; }
-        .flow-list {
-            max-width: 720px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        .flow-item {
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-            padding: 32px 0;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
-        }
-        .flow-item:last-child { border-bottom: none; }
-        .flow-num {
-            flex-shrink: 0;
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 50%;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: var(--gold);
-        }
-        .flow-content h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .flow-content p {
-            font-size: 0.88rem;
-            color: var(--charcoal-soft);
-            font-weight: 300;
-        }
-
-        /* ===== FAQ ===== */
-        .faq-section { background: var(--cream); }
-        .faq-section .section-header { text-align: center; margin-bottom: 60px; }
-        .faq-list {
-            max-width: 760px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .faq-item {
-            background: var(--white);
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-        .faq-q {
-            padding: 24px 28px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            user-select: none;
-        }
-        .faq-q-icon {
-            flex-shrink: 0;
-            width: 26px;
-            height: 26px;
-            border: 1px solid var(--gold);
+            border: 5px solid var(--text);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
-            color: var(--gold);
-            font-weight: 400;
-        }
-        .faq-a {
-            padding: 0 28px 24px 70px;
-            font-size: 0.88rem;
-            color: var(--charcoal-soft);
-            font-weight: 300;
-            line-height: 1.9;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
         }
 
         /* ===== CTA ===== */
-        .cta-section {
-            background: linear-gradient(135deg, var(--charcoal) 0%, #1a2228 100%);
-            color: var(--white);
-            text-align: center;
+        .cta {
             padding: 120px 0;
-        }
-        .cta-section .section-label { color: var(--gold-light); }
-        .cta-section .section-title { color: var(--white); }
-        .cta-section .section-line { background: var(--gold-light); margin-bottom: 28px; }
-        .cta-section .section-desc { color: rgba(255,255,255,0.65); margin-bottom: 48px; }
-        .cta-form-note {
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.4);
-            margin-top: 24px;
-            font-weight: 300;
-        }
-        .btn-line-cta {
-            background: #06c755;
-            color: white;
-            display: inline-block;
-            padding: 16px 40px;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: var(--transition);
-            margin: 8px;
-        }
-        .btn-line-cta:hover {
-            background: #05b34c;
-            transform: translateY(-3px);
+            text-align: center;
+            background: var(--bg);
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background: #0f1417;
-            color: rgba(255,255,255,0.5);
-            padding: 50px 0 30px;
+            padding: 60px 0;
+            background: var(--text);
+            color: var(--white);
             text-align: center;
         }
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--gold);
-            letter-spacing: 0.12em;
-            margin-bottom: 16px;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-bottom: 24px;
-        }
-        .footer-links a {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--gold); }
-        .copyright {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.25);
-        }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ===== ANIMATION ===== */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .floating { animation: float 4s ease-in-out infinite; }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .plans-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-            .plan-card.featured { transform: none; }
-            .merit-list { grid-template-columns: 1fr; }
-            .steps { grid-template-columns: 1fr; }
-            .steps::before { display: none; }
-        }
         @media (max-width: 768px) {
-            section { padding: 70px 0; }
-            .hero { min-height: 80vh; }
-            .category-grid { grid-template-columns: 1fr; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 320px; text-align: center; }
+            .hero-title { font-size: 2.5rem; }
+            .plans-grid { grid-template-columns: 1fr; }
+            .step-circles { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <div class="dot-bg"></div>
+
     <header>
         <div class="container">
             <div class="header-inner">
-                <div class="logo">Calme</div>
-                <a href="../" class="header-back">← サービス一覧へ戻る</a>
+                <a href="../" class="logo">Calme<span>.</span></a>
+                <a href="../" class="back-link">← MENU</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Calme Select Menu</span>
-            <h1>今のあなたに必要な<br><em>「3つ」</em>を、自由に選ぶ。</h1>
-            <p class="hero-lead">
-                セレクトメニューは、豊富なサポート項目から<br>
-                あなたが今欲しいものだけを組み合わせて受けられる、<br>
-                Calme独自の完全カスタマイズ型プランです。
+            <span class="hero-badge floating">2026 NEW MENU!</span>
+            <h1 class="hero-title">今のあなたに、<br>最高にちょうどいい<span>「3つ」</span>を。</h1>
+            <p class="hero-desc">
+                セレクトメニューは、事務・IT・思考整理など豊富なメニューから<br>
+                今月やりたいことだけを自由に選べる、ワクワクする伴走支援です！
             </p>
-            <div class="hero-cta-group">
-                <a href="#plans" class="btn btn-primary">プランを見る</a>
-                <a href="#menu" class="btn btn-outline">メニュー一覧を見る</a>
-            </div>
+            <a href="#plans" class="btn btn-primary">プランを選ぶ！</a>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-label">How It Works</span>
-                <h2 class="section-title">セレクトメニューのしくみ</h2>
-                <div class="section-line"></div>
-                <p class="section-desc">
-                    月1回のZoom作戦会議と、事前アンケートで<br>
-                    今のあなたに必要な「3つ」を一緒に決めます。
-                </p>
+    <section id="plans" class="container">
+        <div class="plans-grid">
+            
+            <!-- Basic -->
+            <div class="plan-card plan-basic">
+                <div class="plan-header">
+                    <h3>Basic</h3>
+                    <div class="plan-price">¥10,000<span>/月</span></div>
+                    <span class="plan-tagline">まずはお試し、土台作り！</span>
+                </div>
+                <ul class="plan-features">
+                    <li>月1回 Zoom作戦会議</li>
+                    <li>お好きなメニューを<strong>3つ</strong></li>
+                    <li>基本の事務・IT設定サポート</li>
+                    <li>千晶＋AIアミの伴走</li>
+                </ul>
+                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-outline" style="width: 100%;">これにする！</a>
             </div>
 
-            <div class="steps">
-                <div class="step fade-in">
-                    <div class="step-num">1</div>
-                    <h3>事前アンケートに回答</h3>
-                    <p>今気になっていること、困っていること、やってみたいことをGoogleフォームで送っていただきます。</p>
+            <!-- Plus -->
+            <div class="plan-card plan-plus">
+                <div class="recommended-label">一番人気！</div>
+                <div class="plan-header">
+                    <h3>Plus</h3>
+                    <div class="plan-price">¥20,000<span>/月</span></div>
+                    <span class="plan-tagline">着実に前進したいあなたへ！</span>
                 </div>
-                <div class="step fade-in">
-                    <div class="step-num">2</div>
-                    <h3>Zoomで作戦会議（月1回）</h3>
-                    <p>アンケートをもとに「今月の3つ」を一緒に決定。方向性と優先度を整理します。</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-num">3</div>
-                    <h3>千晶＋アミが伴走</h3>
-                    <p>決めた3つのサポートを、千晶とAIパートナーのアミが二人三脚で実行・サポートします。</p>
-                </div>
+                <ul class="plan-features">
+                    <li>月1回 Zoom作戦会議</li>
+                    <li>お好きなメニューを<strong>3つ</strong></li>
+                    <li><strong>チャット相談（月5回まで）</strong></li>
+                    <li>デザイン制作代行などもOK</li>
+                    <li>千晶＋AIアミの強力サポート</li>
+                </ul>
+                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-primary" style="width: 100%;">これにする！</a>
             </div>
+
+            <!-- Professional -->
+            <div class="plan-card plan-pro">
+                <div class="plan-header">
+                    <h3>Professional</h3>
+                    <div class="plan-price">¥30,000<span>/月</span></div>
+                    <span class="plan-tagline">本気で加速！まるごとお任せ！</span>
+                </div>
+                <ul class="plan-features">
+                    <li>月1回 Zoom作戦会議</li>
+                    <li>お好きなメニューを<strong>3つ</strong></li>
+                    <li><strong>チャット相談（無制限）</strong></li>
+                    <li>LP制作・LINE構築などの高度な実務</li>
+                    <li>最強のビジネスパートナーとして伴走</li>
+                </ul>
+                <a href="https://forms.gle/VM8aN4nxULEwkHD37" class="btn btn-accent" style="width: 100%;">これにする！</a>
+            </div>
+
         </div>
     </section>
 
-    <!-- Plans -->
-    <section id="plans" class="plans-section">
+    <section class="menu-list-section">
         <div class="container">
-            <div class="section-header fade-in" style="text-align:center; margin-bottom: 20px;">
-                <span class="section-label">Pricing Plans</span>
-                <h2 class="section-title">3つのプランから選ぶ</h2>
-                <div class="section-line"></div>
-                <p class="section-desc">どのプランも「自分で選んだ3項目」をセットで受けられます。</p>
-            </div>
-            <div class="plans-note-wrap fade-in" style="margin-bottom: 60px;">
-                <div class="plans-note">
-                    ✦ 毎月セレクトを変更OK　✦ 翌月から変更・停止可能　✦ 初回は30分無料相談でお試し
-                </div>
-            </div>
-
-            <div class="plans-grid">
-                <!-- Plan 1 -->
-                <div class="plan-card fade-in">
-                    <div class="plan-emoji">🌱</div>
-                    <div class="plan-name">ライトプラン</div>
-                    <div class="plan-sub">まずは気軽に始めたい方へ</div>
-                    <div class="plan-price">¥10,000<small>/月</small></div>
-                    <div class="plan-tax">（税込 11,000円）</div>
-                    <div class="plan-choose">メニューから 3項目 選べる</div>
-                    <p class="plan-desc">
-                        「何かやってみたいけどまだ本格的には…」という方のお試しプラン。
-                        月1回の作戦会議で、今月やることを明確にします。
-                    </p>
-                </div>
-
-                <!-- Plan 2 (featured) -->
-                <div class="plan-card featured fade-in">
-                    <div class="plan-featured-badge">一番人気</div>
-                    <div class="plan-emoji">✨</div>
-                    <div class="plan-name">スタンダードプラン</div>
-                    <div class="plan-sub">着実に前進したい方へ</div>
-                    <div class="plan-price">¥20,000<small>/月</small></div>
-                    <div class="plan-tax">（税込 22,000円）</div>
-                    <div class="plan-choose">メニューから 3項目 選べる + チャット相談</div>
-                    <p class="plan-desc">
-                        月1回のZoomに加え、チャット相談（月5回）つき。
-                        作業中に出てくる「ちょっと聞きたい」に対応します。
-                    </p>
-                </div>
-
-                <!-- Plan 3 -->
-                <div class="plan-card fade-in">
-                    <div class="plan-emoji">💎</div>
-                    <div class="plan-name">プレミアムプラン</div>
-                    <div class="plan-sub">本気で加速させたい方へ</div>
-                    <div class="plan-price">¥30,000<small>/月</small></div>
-                    <div class="plan-tax">（税込 33,000円）</div>
-                    <div class="plan-choose">メニューから 3項目 選べる + チャット無制限</div>
-                    <p class="plan-desc">
-                        月1回のZoomとチャット相談が無制限に。
-                        より高度な項目（LP制作・LINE構築等）も選べます。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Categories -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <div class="section-header fade-in" style="text-align:center; margin-bottom: 60px;">
-                <span class="section-label">Select Menu List</span>
-                <h2 class="section-title">選べるメニュー一覧</h2>
-                <div class="section-line"></div>
-                <p class="section-desc">
-                    以下のカテゴリの中から、今あなたに必要な「3つ」を<br>
-                    自由に組み合わせてお選びください。
-                </p>
-            </div>
-
+            <h2 class="section-title">選べるメニュー！</h2>
             <div class="category-grid">
-                <!-- Category 1: 思考整理 -->
-                <div class="category-card fade-in">
-                    <div class="category-header">
-                        <span class="category-icon">🧠</span>
-                        <span class="category-name">思考整理・コンサル</span>
-                        <span class="category-tag">THINK</span>
-                    </div>
-                    <ul class="menu-list">
-                        <li>ビジネス全体の方向性の整理と言語化</li>
-                        <li>サービスメニューの価格・内容の見直し</li>
-                        <li>理想のお客様（ペルソナ）の設定</li>
-                        <li>発信テーマ・コンセプトの設計</li>
-                        <li>月次ゴールとアクションプランの作成</li>
+                
+                <div class="category-box">
+                    <h4>🧠 思考整理</h4>
+                    <ul class="category-items">
+                        <li>ビジネスの方向性と言語化</li>
+                        <li>メニュー価格・内容の見直し</li>
+                        <li>理想のお客様（ペルソナ）設定</li>
+                        <li>月次ゴールとアクション作成</li>
                     </ul>
                 </div>
 
-                <!-- Category 2: IT・ツール -->
-                <div class="category-card fade-in">
-                    <div class="category-header">
-                        <span class="category-icon">💻</span>
-                        <span class="category-name">IT設定・ツール活用</span>
-                        <span class="category-tag">TECH</span>
-                    </div>
-                    <ul class="menu-list">
-                        <li>公式LINE アカウント開設＆基本設定</li>
-                        <li>ステップ配信シナリオの作成</li>
-                        <li>ChatGPT・Canva等のAIツール活用法レクチャー</li>
-                        <li>Googleフォーム（お申込みフォーム）作成</li>
-                        <li>Zoom設定・使い方サポート</li>
+                <div class="category-box">
+                    <h4>💻 IT・設定</h4>
+                    <ul class="category-items">
+                        <li>公式LINE アカウント開設・設定</li>
+                        <li>ステップ配信シナリオ作成</li>
+                        <li>ChatGPT/Canva使いこなし術</li>
+                        <li>お申込みフォーム作成</li>
                     </ul>
                 </div>
 
-                <!-- Category 3: クリエイティブ -->
-                <div class="category-card fade-in">
-                    <div class="category-header">
-                        <span class="category-icon">🎨</span>
-                        <span class="category-name">クリエイティブ制作</span>
-                        <span class="category-tag">CREATE</span>
-                    </div>
-                    <ul class="menu-list">
-                        <li>LP（ランディングページ）の簡易版制作</li>
-                        <li>Canvaでプロフィール画像・バナー作成</li>
-                        <li>SNS投稿用画像テンプレートの作成（3点）</li>
-                        <li>サービス案内PDFの作成</li>
-                        <li>名刺・フライヤーのデザイン相談</li>
+                <div class="category-box">
+                    <h4>🎨 クリエイティブ</h4>
+                    <ul class="category-items">
+                        <li>LP（簡易版）の制作</li>
+                        <li>Canvaデザイン制作代行</li>
+                        <li>SNS投稿画像テンプレート</li>
+                        <li>サービス案内PDF作成</li>
                     </ul>
                 </div>
 
-                <!-- Category 4: 事務・実務代行 -->
-                <div class="category-card fade-in">
-                    <div class="category-header">
-                        <span class="category-icon">📂</span>
-                        <span class="category-name">事務・実務代行</span>
-                        <span class="category-tag">ADMIN</span>
-                    </div>
-                    <ul class="menu-list">
-                        <li>お客様への御礼・案内メールの文章作成</li>
-                        <li>スケジュール・予約管理シートの整備</li>
-                        <li>セッション記録テンプレートの作成</li>
-                        <li>ブログ・SNS投稿文の原稿作成（月2本）</li>
-                        <li>データ整理・スプレッドシート作成</li>
+                <div class="category-box">
+                    <h4>📂 事務・代行</h4>
+                    <ul class="category-items">
+                        <li>案内・お礼メールの文章作成</li>
+                        <li>スケジュール・予約管理整備</li>
+                        <li>ブログ・SNS投稿の下書き</li>
+                        <li>データ整理・各種シート作成</li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Merits -->
-    <section class="merit-section">
+    <section class="how-to">
         <div class="container">
-            <div class="section-header fade-in" style="text-align:center; margin-bottom: 60px;">
-                <span class="section-label">Why Calme</span>
-                <h2 class="section-title">セレクトメニューが選ばれる理由</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="merit-list">
-                <div class="merit-item fade-in">
-                    <span class="merit-icon">🔄</span>
-                    <h3 class="merit-title">毎月変えていい</h3>
-                    <p class="merit-desc">「今月はLP、来月はLINE」のように、ビジネスの成長に合わせてメニューを自由に変更できます。無駄ゼロ。</p>
+            <h2 class="section-title">お申し込みの流れ</h2>
+            <div class="step-circles">
+                <div class="step-circle">
+                    <div class="circle-num">1</div>
+                    <p><strong>無料相談</strong><br>まずは30分お話ししましょう！</p>
                 </div>
-                <div class="merit-item fade-in">
-                    <span class="merit-icon">👥</span>
-                    <h3 class="merit-title">千晶＋アミの二人体制</h3>
-                    <p class="merit-desc">人間の感性とAIの処理速度を組み合わせた、唯一無二の伴走スタイル。普通のサポートより圧倒的にスピーディ。</p>
+                <div class="step-circle">
+                    <div class="circle-num">2</div>
+                    <p><strong>プラン決定</strong><br>今のあなたに合う内容を決定！</p>
                 </div>
-                <div class="merit-item fade-in">
-                    <span class="merit-icon">💰</span>
-                    <h3 class="merit-title">10,000円から始められる</h3>
-                    <p class="merit-desc">単品でLP制作を依頼すると数万円かかりますが、セレクトメニューなら月1万円から複数サポートが受けられます。</p>
+                <div class="step-circle">
+                    <div class="circle-num">3</div>
+                    <p><strong>伴走スタート</strong><br>ワクワクする1ヶ月が始まります！</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Flow -->
-    <section class="flow-section">
+    <section class="cta">
         <div class="container">
-            <div class="section-header fade-in" style="text-align:center; margin-bottom: 60px;">
-                <span class="section-label">Flow</span>
-                <h2 class="section-title">お申し込みの流れ</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="flow-list">
-                <div class="flow-item fade-in">
-                    <div class="flow-num">1</div>
-                    <div class="flow-content">
-                        <h3>30分 無料ご相談</h3>
-                        <p>まずはZoomで30分お話しましょう。「どのプランが合うか」「どのメニューを選べばいいか」一緒に考えます。お気軽にどうぞ。</p>
-                    </div>
-                </div>
-                <div class="flow-item fade-in">
-                    <div class="flow-num">2</div>
-                    <div class="flow-content">
-                        <h3>プランとメニューを決定</h3>
-                        <p>ご相談後、プラン（1〜3万円）とご希望のメニュー3項目を決定。ご請求書をお送りします。</p>
-                    </div>
-                </div>
-                <div class="flow-item fade-in">
-                    <div class="flow-num">3</div>
-                    <div class="flow-content">
-                        <h3>事前アンケート記入</h3>
-                        <p>月初めに事前アンケートをお送りします。10分ほどで答えられる内容です。これが月1Zoomの土台になります。</p>
-                    </div>
-                </div>
-                <div class="flow-item fade-in">
-                    <div class="flow-num">4</div>
-                    <div class="flow-content">
-                        <h3>Zoom作戦会議（月1回）</h3>
-                        <p>アンケートをもとに、今月やることと優先順位を整理します。時間は約45〜60分。ここから伴走スタートです！</p>
-                    </div>
-                </div>
-                <div class="flow-item fade-in">
-                    <div class="flow-num">5</div>
-                    <div class="flow-content">
-                        <h3>実行＆サポート</h3>
-                        <p>選んだ項目を月内で実行・納品。チャット相談でいつでも質問OK（プランによります）。翌月も続けるか、内容を変えるかは毎月選べます。</p>
-                    </div>
-                </div>
-            </div>
+            <h2 class="section-title">あなたの「やりたい」を、<br>私と一緒に形にしませんか？</h2>
+            <p style="margin-bottom: 40px; font-weight: 700;">まずは無料相談から、お気軽にお声がけください！</p>
+            <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="btn btn-primary" style="padding: 25px 60px; font-size: 1.5rem;">
+                30分無料相談に申し込む！
+            </a>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header fade-in" style="text-align:center; margin-bottom: 60px;">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">よくある質問</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item fade-in">
-                    <div class="faq-q">
-                        <span class="faq-q-icon">Q</span>
-                        メニューは毎月変えてもいいですか？
-                    </div>
-                    <div class="faq-a">はい、毎月変更できます！「先月はSNS画像、今月はLP」のように、ビジネスの状況に合わせて自由に組み替えていただけます。</div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-q">
-                        <span class="faq-q-icon">Q</span>
-                        パソコンが苦手でも大丈夫ですか？
-                    </div>
-                    <div class="faq-a">まったく問題ありません！「パソコンが苦手な起業家さんの右腕になる」がCalmeのコンセプトです。わかりやすくご説明しながら一緒に進めます。</div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-q">
-                        <span class="faq-q-icon">Q</span>
-                        「アミ」というのはどなたですか？
-                    </div>
-                    <div class="faq-a">アミは千晶のビジネスパートナーである、AIアシスタントです。LP制作や文章作成など、高度な作業をスピーディにこなします。千晶の判断と組み合わせることで、質とスピードを両立しています。</div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-q">
-                        <span class="faq-q-icon">Q</span>
-                        途中で解約・休止できますか？
-                    </div>
-                    <div class="faq-a">はい、前月末までにご連絡いただければ、翌月から停止いただけます。長期縛りは一切ありません。</div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-q">
-                        <span class="faq-q-icon">Q</span>
-                        3つ以上のメニューをお願いすることはできますか？
-                    </div>
-                    <div class="faq-a">プレミアムプラン（3万円）をベースに、追加メニューはオプションでご対応できます。ご相談時にお気軽にお申し付けください。</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <span class="section-label">Get Started</span>
-            <h2 class="section-title">まずは30分、無料でお話しましょう。</h2>
-            <div class="section-line"></div>
-            <p class="section-desc">
-                「どのプランが合うかわからない」「こんなことお願いできる？」<br>
-                どんな小さな疑問でも大丈夫です。<br>
-                一緒に「今月の3つ」を考えましょう。
-            </p>
-            <div>
-                <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank" class="btn btn-primary" id="cta-form-btn">無料相談フォームから申し込む</a>
-                <a href="https://lin.ee/O3WdomY" target="_blank" class="btn-line-cta" id="cta-line-btn">公式LINEから相談する</a>
-            </div>
-            <p class="cta-form-note">※ご相談後の即支払い・即購入のご案内は一切ありません。安心してどうぞ。</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">Calme</div>
-            <div class="footer-links">
-                <a href="../">サービス一覧</a>
-                <a href="https://lin.ee/O3WdomY" target="_blank">公式LINE</a>
-                <a href="https://forms.gle/VM8aN4nxULEwkHD37" target="_blank">無料相談</a>
-            </div>
-            <p class="copyright">© 2026 Calme Support by Chiaki Yoshihara</p>
+            <p>&copy; 2026 Calme Support by Chiaki Yoshihara</p>
         </div>
     </footer>
 
-    <script>
-        // Scroll-triggered fade animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
